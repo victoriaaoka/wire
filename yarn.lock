@@ -2,6 +2,10 @@
 # yarn lockfile v1
 
 
+"@types/history@*":
+  version "4.6.0"
+  resolved "https://registry.yarnpkg.com/@types/history/-/history-4.6.0.tgz#093d67ed780d889c9543f6dca24ebee0b6b9fc45"
+
 "@types/jest@^20.0.8":
   version "20.0.8"
   resolved "https://registry.yarnpkg.com/@types/jest/-/jest-20.0.8.tgz#7f8c97f73d20d3bf5448fbe33661a342002b5954"
@@ -22,6 +26,21 @@
   dependencies:
     "@types/react" "*"
     redux "^3.6.0"
+
+"@types/react-router-dom@^4.0.7":
+  version "4.0.7"
+  resolved "https://registry.yarnpkg.com/@types/react-router-dom/-/react-router-dom-4.0.7.tgz#65b192f7a5dbd1c05a8d04cc5863c9775705a435"
+  dependencies:
+    "@types/history" "*"
+    "@types/react" "*"
+    "@types/react-router" "*"
+
+"@types/react-router@*":
+  version "4.0.15"
+  resolved "https://registry.yarnpkg.com/@types/react-router/-/react-router-4.0.15.tgz#be8aaefc20afd968a5dbcffcf09060e6c2e8746e"
+  dependencies:
+    "@types/history" "*"
+    "@types/react" "*"
 
 "@types/react@*", "@types/react@^16.0.5":
   version "16.0.5"
