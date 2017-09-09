@@ -2,9 +2,10 @@ import * as React from 'react';
 import { Provider } from 'react-redux';
 import { BrowserRouter, Route } from 'react-router-dom';
 import configureStore from '../store/store';
+
 // components
 import Dashboard from '../pages/dashboard/DashboardPage.component';
-const store = configureStore({}); 
+const store = configureStore({});
 
 const Routes = () => (
     <Provider store={store}>
