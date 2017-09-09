@@ -1,16 +1,19 @@
 import * as React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-
+import { Provider } from 'react-redux';
+import { BrowserRouter, Route } from 'react-router-dom';
+import configureStore from '../store/store';
 // components
 import Dashboard from '../pages/dashboard/DashboardPage.component';
+const store = configureStore({}); 
 
 const Routes = () => (
-    <Router>
-        <Switch>
-            <Route path="/" component={Dashboard} />
-        </Switch>
-    </Router>
+    <Provider store={store}>
+        <BrowserRouter>
+            <Route>
+                <Route path="/" component={Dashboard} />
+            </Route>
+        </BrowserRouter>
+    </Provider>
 );
 
 export default Routes;
-
