@@ -1,6 +1,6 @@
 {
-    "extends": "tslint:recommended",
-    "rules": {
-      "quotemark": [true, "single", "jsx-double"]
-    }
+  "extends": "tslint:recommended",
+  "rules": {
+    "quotemark": [true, "single", "jsx-double"]
+  }
 }

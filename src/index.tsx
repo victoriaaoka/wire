@@ -1,13 +1,5 @@
 import * as React from 'react';
-import * as ReactDOM from 'react-dom';
-import registerServiceWorker from './registerServiceWorker';
+import { render } from 'react-dom';
 import Routes from './routes/routes';
 
-// styles
-import './index.css';
-
-ReactDOM.render(
-  <Routes />,
-  document.getElementById('app') as HTMLElement,
-);
-registerServiceWorker();
+render(<Routes />, document.getElementById('app'));

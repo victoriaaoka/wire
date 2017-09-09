@@ -2,6 +2,8 @@ import * as React from 'react';
 import { connect, Dispatch } from 'react-redux';
 import * as actions from '../../actions/IncidentAction';
 
+import { Button } from 'react-toolbox/lib/button';
+
 // styles
 import './DashboardPage.scss';
 
@@ -12,7 +14,8 @@ class Dashboard extends React.Component<any, any> {
 
     public render() {
         return(
-            <div className="dashboard">
+            <div>
+                <Button label="Whatever" />
                 Dashboard
             </div>
         );
