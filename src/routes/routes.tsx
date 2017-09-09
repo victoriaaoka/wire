@@ -4,6 +4,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import configureStore from '../store/store';
 
 // components
+import NavigationComponent from '../common/navigation/navigation.component';
 import Dashboard from '../pages/dashboard/DashboardPage.component';
 const store = configureStore({});
 
