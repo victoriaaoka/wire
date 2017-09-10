@@ -1,27 +1,25 @@
 import * as React from 'react';
 import { connect, Dispatch } from 'react-redux';
 import * as actions from '../../actions/IncidentAction';
-import IncidentReport from '../../components/incidents/IncidentReport.component';
 
-import { Button } from 'react-toolbox/lib/button';
+// components
+import ProgressBar from 'react-toolbox/lib/progress_bar';
 import NavigationComponent from '../../common/navigation/Navigation.component';
+import IncidentsList from '../../components/incidentsList/IncidentLists.component';
 
-// styles
-import './DashboardPage.scss';
-
-class Dashboard extends React.Component<any, any> {
+class Incidents extends React.Component<any, any> {
     constructor(props: any) {
         super(props);
     }
-
     public render() {
-        return(
+        return (
             <div>
                 <NavigationComponent />
-                <div className = "dashboard">
-                    <IncidentReport />
-                    <Button icon="add" floating className="report-btn"/>
-                </div>
+                {
+                    this.props.isLoading ?
+                    <ProgressBar type="linear" mode="determinate" /> :
+                    <IncidentsList incidents={this.props.incidents} />
+                }
             </div>
         );
     }
@@ -31,9 +29,10 @@ class Dashboard extends React.Component<any, any> {
     }
 }
 
-export function mapStateToProps(incident: any) {
+export function mapStateToProps(state) {
     return {
-        incident,
+        incidents: state.incidents,
+        isLoading: state.isLoading,
     };
 }
 
@@ -43,4 +42,4 @@ export function mapDispatchToProps(dispatch: Dispatch<actions.IncidentAction>) {
     };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);
+export  default connect(mapStateToProps, mapDispatchToProps)(Incidents);

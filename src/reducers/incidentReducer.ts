@@ -1,5 +1,5 @@
+import { IncidentAction } from '../actions/IncidentAction';
 import * as types from '../types';
-import { IncidentAction } from '../actions/IncidentAction'; 
 import initialState from './initialState';
 
 const incidentReducer = (state = initialState.incidents, action: IncidentAction) => {
@@ -9,6 +9,6 @@ const incidentReducer = (state = initialState.incidents, action: IncidentAction)
         default:
             return state;
     }
-}
+};
 
 export default incidentReducer;
