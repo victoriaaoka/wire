@@ -1,6 +1,8 @@
+@import "../../common/theme";
+
 .appbar {
     width: 100%;
-    background: #3359DF;
+    background: map_get($colors, primary);
 }
 
 .appbar h1 {
@@ -9,4 +11,8 @@
 
 .appbar .material-icons {
     font-size: 40px;
+}
+
+.link {
+    color: map_get($colors, light) !important;
 }

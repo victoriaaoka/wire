@@ -5,6 +5,7 @@ import configureStore from '../store/store';
 
 // components
 import Dashboard from '../pages/dashboard/DashboardPage.component';
+import IncidentForm from '../pages/forms/incident/IncidentForm.component';
 import Incidents from '../pages/incidents/IncidentsPage.component';
 
 const store = configureStore({});
@@ -15,6 +16,7 @@ const Routes = () => (
             <Switch>
                 <Route exact path="/" component={Dashboard} />
                 <Route path="/incidents" component={Incidents} />
+                <Route path="/log_incident" component={IncidentForm} />
             </Switch>
         </Router>
     </Provider>
