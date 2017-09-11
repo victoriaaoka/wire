@@ -9,7 +9,7 @@ import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
 import compression from 'compression';
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3003;
 const app = express();
 const compiler = webpack(config);
 const env = process.env.NODE_ENV || 'development';

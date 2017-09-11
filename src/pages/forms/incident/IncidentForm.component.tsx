@@ -1,6 +1,10 @@
 import * as React from 'react';
 import { connect, Dispatch } from 'react-redux';
 
+// notifications
+import { ToastContainer } from 'react-toastify';
+import { toast } from 'react-toastify';
+
 import { Button } from 'react-toolbox/lib/button';
 import DatePicker from 'react-toolbox/lib/date_picker';
 import Dropdown from 'react-toolbox/lib/dropdown';
@@ -9,6 +13,7 @@ import TimePicker from 'react-toolbox/lib/time_picker';
 const datetime = new Date();
 
 // styles
+import '../../../common/notification.scss';
 import './Incident.scss';
 
 // actions
@@ -40,6 +45,7 @@ class IncidentReport extends React.Component<any, any> {
 
     public submitIncident() {
         this.props.createIncident(this.state);
+        toast('demo notification');
     }
 
     public render() {
@@ -88,6 +94,9 @@ class IncidentReport extends React.Component<any, any> {
                         raised
                         primary
                     />
+                </div>
+                <div id="toast-container">
+                    <ToastContainer />
                 </div>
             </div>
         );
