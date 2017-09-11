@@ -1,4 +1,6 @@
 import * as React from 'react';
+import { connect, Dispatch } from 'react-redux';
+
 import { Button } from 'react-toolbox/lib/button';
 import DatePicker from 'react-toolbox/lib/date_picker';
 import Dropdown from 'react-toolbox/lib/dropdown';
@@ -6,7 +8,11 @@ import Input from 'react-toolbox/lib/input';
 import TimePicker from 'react-toolbox/lib/time_picker';
 const datetime = new Date();
 
+// styles
 import './Incident.scss';
+
+// actions
+import * as actions from '../../../actions/IncidentAction';
 
 const categories = [
     { value: 1 , label: 'Theft' },
@@ -33,7 +39,7 @@ class IncidentReport extends React.Component<any, any> {
     }
 
     public submitIncident() {
-        //
+        this.props.createIncident(this.state);
     }
 
     public render() {
@@ -88,4 +94,16 @@ class IncidentReport extends React.Component<any, any> {
     }
 }
 
-export default IncidentReport;
+export function mapStateToProps(incident: any) {
+    return {
+        incident,
+    };
+}
+
+export function mapDispatchToProps(dispatch: Dispatch<actions.IncidentAction>) {
+    return {
+        createIncident: (incident) => dispatch(actions.createIncident(incident)),
+    };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(IncidentReport);
