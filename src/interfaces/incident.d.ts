@@ -14,7 +14,12 @@ export interface Iincidents {
     incidents: Iincident[];
 }
 
-export interface IincidentActionProps {
+export interface Iincident {
+    incident: Iincident;
+    type: types.CREATE_INCIDENT_SUCCESS;
+}
+
+export interface IincidentsActionProps {
     incidents: Iincidents;
     type: types.LOAD_INCIDENTS_SUCCESS;
 }
