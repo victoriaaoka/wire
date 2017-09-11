@@ -42,7 +42,7 @@ var _compression2 = _interopRequireDefault(_compression);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 3003;
 var app = (0, _express2.default)();
 var compiler = (0, _webpack2.default)(_webpackConfig2.default);
 var env = process.env.NODE_ENV || 'development';

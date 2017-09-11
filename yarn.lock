@@ -6,7 +6,7 @@
   version "4.0.4"
   resolved "https://registry.yarnpkg.com/@types/chai/-/chai-4.0.4.tgz#fe86315d9a66827feeb16f73bc954688ec950e18"
 
-"@types/jquery@^3.2.6":
+"@types/jquery@*", "@types/jquery@^3.2.6":
   version "3.2.12"
   resolved "https://registry.yarnpkg.com/@types/jquery/-/jquery-3.2.12.tgz#f496823108c3874c97c9a822e675a3926ee64b46"
 
@@ -42,6 +42,12 @@
 "@types/react@*", "@types/react@^16.0.4":
   version "16.0.5"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-16.0.5.tgz#d713cf67cc211dea20463d2a0b66005c22070c4b"
+
+"@types/toastr@^2.1.35":
+  version "2.1.35"
+  resolved "https://registry.yarnpkg.com/@types/toastr/-/toastr-2.1.35.tgz#9b29ee786744994c4f7eafee415b125f835dd854"
+  dependencies:
+    "@types/jquery" "*"
 
 abab@^1.0.3:
   version "1.0.3"
@@ -2325,10 +2331,6 @@ elegant-spinner@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/elegant-spinner/-/elegant-spinner-1.0.1.tgz#db043521c95d7e303fd8f345bedc3349cfb0729e"
 
-element-class@^0.2.2:
-  version "0.2.2"
-  resolved "https://registry.yarnpkg.com/element-class/-/element-class-0.2.2.tgz#9d3bbd0767f9013ef8e1c8ebe722c1402a60050e"
-
 elliptic@^6.0.0:
   version "6.4.0"
   resolved "https://registry.yarnpkg.com/elliptic/-/elliptic-6.4.0.tgz#cac9af8762c85836187003c8dfe193e5e2eae5df"
@@ -3474,12 +3476,6 @@ imagemin@^5.2.2:
     p-pipe "^1.1.0"
     pify "^2.3.0"
     replace-ext "^1.0.0"
-
-immutability-helper@^2.3.1:
-  version "2.3.1"
-  resolved "https://registry.yarnpkg.com/immutability-helper/-/immutability-helper-2.3.1.tgz#8ccfce92157208c120b2afad7ed05c11114c086e"
-  dependencies:
-    invariant "^2.2.0"
 
 import-lazy@^2.1.0:
   version "2.1.0"
@@ -6036,18 +6032,6 @@ react-toastify@^1.7.0:
     prop-types "^15.5.8"
     react-transition-group "^1.1.2"
 
-react-toastr@^2.8.2:
-  version "2.9.3"
-  resolved "https://registry.yarnpkg.com/react-toastr/-/react-toastr-2.9.3.tgz#52950afaf12f3b30a514d02c1930b1b1cf04ddbc"
-  dependencies:
-    classnames "^2.2.5"
-    create-react-class "^15.6.0"
-    element-class "^0.2.2"
-    immutability-helper "^2.3.1"
-    lodash "^4.17.4"
-    prop-types "^15.5.10"
-    react-dom "^15.6.1"
-
 react-toolbox@^2.0.0-beta.12:
   version "2.0.0-beta.12"
   resolved "https://registry.yarnpkg.com/react-toolbox/-/react-toolbox-2.0.0-beta.12.tgz#1d9dd7cc41e3b35dabdce5eb100a8068eee88c45"
@@ -7114,6 +7098,10 @@ to-arraybuffer@^1.0.0:
 to-fast-properties@^1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/to-fast-properties/-/to-fast-properties-1.0.3.tgz#b83571fa4d8c25b82e231b06e3a3055de4ca1a47"
+
+toastr@^2.1.2:
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/toastr/-/toastr-2.1.2.tgz#fd69066ae7578a5b3357725fc9c7c335e9b681df"
 
 topo@1.x.x:
   version "1.1.0"
