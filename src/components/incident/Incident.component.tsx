@@ -18,7 +18,7 @@ class Incident extends React.Component<any, any> {
                 legend="Incident Description"
                 leftActions={leftActions}
                 rightActions={rightActions}
-                rightIcon="star"
+                rightIcon={<i className="material-icons">brightness_1</i>}
                 selectable
             />
         );

@@ -1,10 +1,10 @@
 {
-  "name": "learning-map-front",
+  "name": "wire",
   "version": "0.0.0",
-  "description": "The Collective Andela Learning Map client side implementation",
+  "description": "'workspace incident reporting",
   "main": "server.js",
-  "repository": "git@github.com:andela/learning-map-front.git",
-  "author": "<kesiena.akpobome@andela.com>",
+  "repository": "https://github.com/AndelaOSP/wire.git",
+  "author": "",
   "license": "MIT",
   "scripts": {
     "start:dev": "npm start && test:watch",
