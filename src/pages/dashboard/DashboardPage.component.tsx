@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { connect, Dispatch } from 'react-redux';
 import * as actions from '../../actions/IncidentAction';
-import IncidentReport from '../../components/incidents/IncidentReport.component';
+
+import IncidentReport from '../forms/incident/IncidentForm.component';
 
 import { Button } from 'react-toolbox/lib/button';
 import NavigationComponent from '../../common/navigation/Navigation.component';
