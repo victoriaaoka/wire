@@ -2,13 +2,13 @@ import * as React from 'react';
 import { connect, Dispatch } from 'react-redux';
 import * as actions from '../../actions/IncidentAction';
 
-import IncidentReport from '../forms/incident/IncidentForm.component';
-
-import { Button } from 'react-toolbox/lib/button';
-import NavigationComponent from '../../common/navigation/Navigation.component';
-
 // styles
 import './DashboardPage.scss';
+
+// components
+import ProgressBar from 'react-toolbox/lib/progress_bar';
+import NavigationComponent from '../../common/navigation/Navigation.component';
+import IncidentsList from '../../components/incidentsList/IncidentLists.component';
 
 class Dashboard extends React.Component<any, any> {
     constructor(props: any) {
@@ -20,8 +20,11 @@ class Dashboard extends React.Component<any, any> {
             <div>
                 <NavigationComponent />
                 <div className = "dashboard">
-                    <IncidentReport />
-                    <Button icon="add" floating className="report-btn"/>
+                    {
+                    this.props.isLoading ?
+                        <ProgressBar type="linear" mode="determinate" /> :
+                        <IncidentsList incidents={this.props.incidents} />
+                    }
                 </div>
             </div>
         );
@@ -32,9 +35,10 @@ class Dashboard extends React.Component<any, any> {
     }
 }
 
-export function mapStateToProps(incident: any) {
+export function mapStateToProps(state: any) {
     return {
-        incident,
+        incidents: state.incidents,
+        isLoading: state.isLoading,
     };
 }
 

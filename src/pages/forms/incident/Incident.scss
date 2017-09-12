@@ -1,11 +1,18 @@
+@import '../../../common/theme.scss';
+
+#app {
+    background-color: $background;
+}
+
 .incident-form {
-    background: white;
-    width: 30em;
-    position: absolute;
-    padding: 1em 5%;
+    background: map_get($colors, light);
     display: flex;
     flex-direction: column;
     align-content: center;
+    width: 70vh;
+    margin: auto;
+    margin-top: 2rem;
+    padding: 1em 5%;
     color: #747677;
 }
 
