@@ -1,11 +1,11 @@
+@import '../../common/theme.scss';
+
 .dashboard {
-  width: 100%;
-  height: 100%;
   display: flex;
   flex-direction: column;
-  background: #F1F3F6;
-  position: fixed;
-  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background: $background;
 }
 
 .report-btn {
@@ -13,6 +13,6 @@
   bottom: 20px;
   right: 20px;
   position: fixed;
-  background-color: #009688 !important;
+  background-color: map_get($colors, secondary) !important;
   color: white !important;
 }

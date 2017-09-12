@@ -15,7 +15,7 @@ class NavigationComponent extends React.Component<any, any> {
         return(
             <AppBar title="WIRE" rightIcon= "account_circle" className="appbar">
                 <Navigation type="horizontal">
-                    <Link className="link" href="/" label="Log Incident" />
+                    <Link className="link" href="/log_incident" label="Log Incident" />
                     <Link className="link" href="/incidents" label="View Incidents" />
                 </Navigation>
             </AppBar>

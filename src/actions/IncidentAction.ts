@@ -29,9 +29,9 @@ export const createIncident = (incident) => {
 export const loadIncidents = () => {
     return ((dispatch: any) => {
         initiateAjaxCall();
-        return axios.get('https://private-3b686-wire3.apiary-mock.com/incidents')
+        return axios('http://app.nairobi.us/wire/api/incidents')
         .then((incidents: any) => {
-            dispatch(loadIncidentsSuccess(incidents.data.incidents));
+            dispatch(loadIncidentsSuccess(incidents.data));
         })
         .catch((error) => {
             console.log(error);
