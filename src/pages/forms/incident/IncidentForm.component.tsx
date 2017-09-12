@@ -19,6 +19,9 @@ import './Incident.scss';
 // actions
 import * as actions from '../../../actions/IncidentAction';
 
+// components
+import NavigationComponent from '../../../common/navigation/Navigation.component';
+
 const categories = [
     { value: 1 , label: 'Theft' },
     { value: 2 , label: 'Injury' },
@@ -50,7 +53,9 @@ class IncidentReport extends React.Component<any, any> {
 
     public render() {
         return(
-            <div className="incident-form">
+            <div>
+                <NavigationComponent />
+                <div className="incident-form">
                 <div className="title"> Report an Incident</div>
                 <Dropdown
                     auto
@@ -98,6 +103,7 @@ class IncidentReport extends React.Component<any, any> {
                 <div id="toast-container">
                     <ToastContainer />
                 </div>
+            </div>
             </div>
         );
     }
