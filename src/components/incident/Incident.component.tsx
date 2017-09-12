@@ -1,28 +1,33 @@
 import * as React from 'react';
 
-import { ListItem } from 'react-toolbox/lib/list';
+// styles
+import './incident.scss';
 
-// temporary data
-const leftActions = ['leftAction1', 'leftAction2', 'leftAction3'];
-const rightActions = ['rightAction1', 'rightAction2', 'rightAction3'];
+// components
+import Avatar from 'react-toolbox/lib/avatar';
 
-class Incident extends React.Component<any, any> {
-    constructor(props: any) {
-        super(props);
-    }
-    public render() {
-        return (
-            <ListItem
-                avatar="https://dl.dropboxusercontent.com/u/2247264/assets/m.jpg"
-                caption="Incident title"
-                legend="Incident Description"
-                leftActions={leftActions}
-                rightActions={rightActions}
-                rightIcon={<i className="material-icons">brightness_1</i>}
-                selectable
-            />
-        );
-    }
-}
+const Incident = ({incident}) => {
+    return (
+        <div className="incident">
+            <div className="left-content">
+                <Avatar className="avatar" />
+                <div className="details">
+                    <p>Title</p>
+                    {incident.description}
+                </div>
+            </div>
+            <div className="right-content">
+                <span className="status">{incident.status}</span>
+                <div className="more-container">
+                    <i className="material-icons more">more_vert</i>
+                    <ul className="more-menu">
+                        <li>Edit</li>
+                        <li>Comment</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    );
+};
 
 export default Incident;
