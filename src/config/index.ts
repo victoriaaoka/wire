@@ -12,7 +12,7 @@ const allConfig = {
   staging: {
     ANDELA_API_BASE_URL: 'https://api-staging.andela.com',
     API_BASE_URL: 'http://app.nairobi.us/wire/api',
-    BASE_URL: 'http://wire-staging.herokuapp.com',
+    BASE_URL: 'http://wire-andela.herokuapp.com',
   },
   testing: {
     ANDELA_API_BASE_URL: 'https://api.andela.com',
