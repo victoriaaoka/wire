@@ -1,4 +1,4 @@
-@import '../../../common/theme.scss';
+@import '../../../common/theme';
 
 #app {
     background-color: $background;
@@ -11,7 +11,6 @@
     align-content: center;
     width: 70vh;
     margin: auto;
-    margin-top: 2rem;
     padding: 1em 5%;
     color: #747677;
 }

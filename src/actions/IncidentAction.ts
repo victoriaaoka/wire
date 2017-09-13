@@ -15,8 +15,9 @@ export const loadIncidentsSuccess = (incidents: any): interfaces.IincidentsActio
 
 export const createIncident = (incident) => {
     return ((dispatch: any) => {
-        initiateAjaxCall();
+        dispatch(initiateAjaxCall());
         return axios.post('https://private-3b686-wire3.apiary-mock.com/incidents', incident)
+        // return axios.post('http://app.nairobi.us/wire/api/incidents', incident)
             .then((incidentResp: any) => {
                 dispatch(createIncidentSuccess(incidentResp.data));
             })
@@ -28,8 +29,8 @@ export const createIncident = (incident) => {
 
 export const loadIncidents = () => {
     return ((dispatch: any) => {
-        initiateAjaxCall();
-        return axios('http://app.nairobi.us/wire/api/incidents')
+        dispatch(initiateAjaxCall());
+        return axios.get('http://app.nairobi.us/wire/api/incidents')
         .then((incidents: any) => {
             dispatch(loadIncidentsSuccess(incidents.data));
         })
