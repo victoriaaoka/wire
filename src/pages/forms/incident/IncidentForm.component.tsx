@@ -17,7 +17,8 @@ import '../../../common/notification.scss';
 import './Incident.scss';
 
 // actions
-import * as actions from '../../../actions/IncidentAction';
+import { loadIncidentCategories } from '../../../actions/IncidentCategoryAction';
+import { createIncident } from '../../../actions/IncidentAction';
 
 // components
 import NavigationComponent from '../../../common/navigation/Navigation.component';
@@ -50,6 +51,10 @@ class IncidentReport extends React.Component<any, any> {
     public submitIncident() {
         this.props.createIncident(this.state);
         toast('Incident logged successfully');
+    }
+
+    public componentWillMount() {
+        this.props.loadIncidentCategories();
     }
 
     public render() {
@@ -120,9 +125,10 @@ export function mapStateToProps(incident: any) {
     };
 }
 
-export function mapDispatchToProps(dispatch: Dispatch<actions.IncidentAction>) {
+export function mapDispatchToProps(dispatch) {
     return {
-        createIncident: (incident) => dispatch(actions.createIncident(incident)),
+        createIncident: (incident) => dispatch(createIncident(incident)),
+        loadIncidentCategories: () => dispatch(loadIncidentCategories()),
     };
 }
 
