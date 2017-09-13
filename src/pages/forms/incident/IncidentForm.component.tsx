@@ -34,6 +34,7 @@ class IncidentReport extends React.Component<any, any> {
             categorySelected: null,
             dateOfOccurence: datetime,
             description: '',
+            location: '',
             timeOfOccurrence: datetime,
             witnesses: '',
         };
@@ -42,13 +43,13 @@ class IncidentReport extends React.Component<any, any> {
         this.handleChange = this.handleChange.bind(this);
     }
 
-    public handleChange = (name, value) => {
+    public handleChange(name, value) {
         this.setState({...this.state, [name]: value});
     }
 
     public submitIncident() {
         this.props.createIncident(this.state);
-        toast('demo notification');
+        toast('Incident logged successfully');
     }
 
     public render() {
@@ -56,54 +57,58 @@ class IncidentReport extends React.Component<any, any> {
             <div>
                 <NavigationComponent />
                 <div className="incident-form">
-                <div className="title"> Report an Incident</div>
-                <Dropdown
-                    auto
-                    source={categories}
-                    label= "Select Incident Category"
-                    value = {this.state.categorySelected}
-                    onChange={(value) => this.handleChange('categorySelected', value)}
-                    disabled = {false}
-                />
-                <Input
-                    multiline type= "text"
-                    label="Description"
-                    rows={4}
-                    onChange={(value) => this.handleChange('description', value)}
-                    value={this.state.description}
-                />
-                <DatePicker
-                    label="Date Incident Occured"
-                    sundayFirstDayOfWeek
-                    onChange={(value) => this.handleChange('dateOfOccurence', value)}
-                    value={this.state.dateOfOccurence}
-                />
-                <TimePicker
-                    label="Time Incident Occured"
-                    onChange={(value) => this.handleChange('timeOfOccurrence', value)}
-                    value={this.state.timeOfOccurrence}
-                />
-                <Input
-                    type="text"
-                    label="Any Witnesses?"
-                    onChange={(value) => this.handleChange('witnesses', value)}
-                    value={this.state.witnesses}
-                />
-                <div className="inline">
-                    <Button icon="cancel" label="Cancel" className="btn-cancel" raised  />
-                    <Button
-                        icon="send"
-                        label="Submit"
-                        onClick={this.submitIncident}
-                        className="btn-success"
-                        raised
-                        primary
+                    <div className="title"> Report an Incident</div>
+                    <Dropdown
+                        auto
+                        source={categories}
+                        label= "Select Incident Category"
+                        value = {this.state.categorySelected}
+                        onChange={(value) => this.handleChange('categorySelected', value)}
                     />
+                    <Input
+                        multiline type= "text"
+                        label="Description"
+                        rows={3}
+                        onChange={(value) => this.handleChange('description', value)}
+                        value={this.state.description}
+                    />
+                    <Input
+                        label="Location"
+                        onChange={(value) => this.handleChange('location', value)}
+                        value={this.state.location}
+                    />
+                    <DatePicker
+                        label="Date Incident Occured"
+                        sundayFirstDayOfWeek
+                        onChange={(value) => this.handleChange('dateOfOccurence', value)}
+                        value={this.state.dateOfOccurence}
+                    />
+                    <TimePicker
+                        label="Time Incident Occured"
+                        onChange={(value) => this.handleChange('timeOfOccurrence', value)}
+                        value={this.state.timeOfOccurrence}
+                    />
+                    <Input
+                        type="text"
+                        label="Any Witnesses?"
+                        onChange={(value) => this.handleChange('witnesses', value)}
+                        value={this.state.witnesses}
+                    />
+                    <div className="inline">
+                        <Button icon="cancel" label="Cancel" className="btn-cancel" raised  />
+                        <Button
+                            icon="send"
+                            label="Submit"
+                            onClick={this.submitIncident}
+                            className="btn-success"
+                            raised
+                            primary
+                        />
+                    </div>
                 </div>
-                <div id="toast-container">
-                    <ToastContainer />
-                </div>
-            </div>
+                {/*<div id="toast-container">*/}
+                    {/*<ToastContainer />*/}
+                {/*</div>*/}
             </div>
         );
     }
