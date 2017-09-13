@@ -30,7 +30,7 @@ export const createIncident = (incident) => {
 export const loadIncidents = () => {
     return ((dispatch: any) => {
         dispatch(initiateAjaxCall());
-        return axios('http://app.nairobi.us/wire/api/incidents')
+        return axios.get('http://app.nairobi.us/wire/api/incidents')
         .then((incidents: any) => {
             dispatch(loadIncidentsSuccess(incidents.data));
         })

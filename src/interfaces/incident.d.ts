@@ -1,4 +1,4 @@
-import * as types from '../types';
+import { CREATE_INCIDENT_SUCCESS, LOAD_INCIDENTS_SUCCESS } from '../types';
 
 export interface Iincident {
     id: number;
@@ -16,10 +16,10 @@ export interface Iincidents {
 
 export interface Iincident {
     incident: Iincident;
-    type: types.CREATE_INCIDENT_SUCCESS;
+    type: CREATE_INCIDENT_SUCCESS;
 }
 
 export interface IincidentsActionProps {
     incidents: Iincidents;
-    type: types.LOAD_INCIDENTS_SUCCESS;
+    type: LOAD_INCIDENTS_SUCCESS;
 }
