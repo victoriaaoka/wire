@@ -2,14 +2,19 @@
  * ./Components/App.jsx
  */
 import React from 'react';
+import { Link } from 'react-router-dom';
+
+// styling
 import './App.scss';
 
 export default class App extends React.Component {
     render() {
         return (
             <div className="content">
-                <h1 className="title">WIRE</h1>
-                <button className="button is-info">Bulma Button</button>
+                <div className="column">
+                    <h1>Home</h1>
+                    <Link to="/">Logout</Link>
+                </div>
             </div>
         );
     }
