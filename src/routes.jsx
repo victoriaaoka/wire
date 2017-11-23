@@ -1,24 +1,28 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
-import { ConnectedRouter } from 'react-router-redux';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
+// History 
 import createHistory from 'history/createBrowserHistory';
 
-//Components
+// Components
 import LoginPage from './pages/Login/LoginPage.Component';
 import App from './pages/App';
+import PrivateRoute from './Components/PrivateRoute/PrivateRoute.Component';
 
+// create history object.
 export const history = createHistory();
 
+/**
+ * Application primary routes
+ */
 const Routes = () => (
-    <div>
-        <ConnectedRouter history={history}>
-            <div>
-                <Route exact path="/" component={LoginPage} />
-                <Route path="/dashboard" component={App} />
-            </div>
-        </ConnectedRouter>
-    </div>
+    <Router>
+        <Switch>
+        <Route exact path="/login" component={LoginPage} />
+            <PrivateRoute path="/" component={App} />
+            <PrivateRoute path="/dashboard" component= {App} />
+        </Switch>
+    </Router>
 );
 
 export default Routes;
