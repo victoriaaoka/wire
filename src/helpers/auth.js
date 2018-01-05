@@ -35,6 +35,8 @@ const authenticateUser = {
              *       Get admin info from WIRE API
              */
             if (userInfo.roles.Andelan) {
+                localStorage.setItem('user', userInfo.name);
+                localStorage.setItem('user_avatar', userInfo.picture);
                 this.isAuthenticated = true;
                 return true;
             }

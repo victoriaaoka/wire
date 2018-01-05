@@ -1,0 +1,66 @@
+@import "../../theme";
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.filters-container {
+  @include flex-column;
+  width: 90vw;
+  background-color: white;
+  max-height: 8rem;
+  margin: auto;
+
+  .filters {
+    @include flex-row;
+    width: 90vw;
+    height: 4rem;
+    box-sizing: border-box;
+    justify-content: space-between;
+    align-items: center;
+
+    .incidents-label {
+      font-weight: 900;
+      color: map_get($grey, 300);
+    }
+
+    .date-filter {
+      &>div {
+        margin: 0rem 0.5rem .4rem 0.5rem !important;
+        max-width: 5rem !important;
+      }
+    }
+
+    .flag-type-label {
+      font-weight: 900;
+      color: map_get($grey, 300);
+    }
+  }
+
+  .incident-select {
+    @include flex-row;
+    justify-content: space-between;
+    background-color: map-get($blue, 300);
+    height: 4rem;
+    padding: 0.3rem;
+    color: white;
+
+    .left-section {
+      @include flex-row;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .right-section {
+      @include flex-row;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+}
