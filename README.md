@@ -1,7 +1,5 @@
 <img src="assets/images/wire_logo_for_readme-01.png" alt="Wire Incident Reporting" width="300" >
 
-# Wire
-
 Wire is an Incident Reporting Software solution that lets you easily record, track and investigate all types of safety incidents and dangerous conditions at your place of work. Wire seeks to streamline incident reporting, reduce risk and keep your employees safe.
 
 ## Getting Started
