@@ -1,0 +1,29 @@
+@import "../../theme";
+
+.timeline-page {
+
+  .main-navigation {
+    position: fixed;
+    z-index: 2;
+  }
+
+  .timeline-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: relative;
+    top: 4rem;
+    z-index: 1;
+
+    .chat-timeline {
+      width: 70vw;
+      border: 1px solid red;
+      height: 100vh;
+    }
+
+    .aside {
+      flex: 1;
+      border: 1px solid blue;
+    }
+  }
+}

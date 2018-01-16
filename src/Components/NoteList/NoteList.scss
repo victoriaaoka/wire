@@ -1,0 +1,71 @@
+@import "../../theme";
+
+.notes-container {
+  margin: 2rem;
+  border: 0.09rem solid map-get($blue, 150);
+  min-height: 50vh;
+  max-height: 60vh;
+  font-weight: 200 !important;
+  font-size: 0.8rem;
+
+  .header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 2rem;
+    border-bottom: 0.09rem solid map-get($blue, 150);
+    background-color: map-get($blue, 050);
+    padding: 0.5rem;
+    font-weight: 400;
+    font-size: 0.8rem;
+
+    button {
+      background-color: map-get($blue, 050);
+      border: 1px solid transparent;
+      outline: none;
+      height: 2rem;
+      width: 5rem;
+      transition: ease-in-out 0.2s;
+
+      &:hover {
+        border: 1px solid map-get($white, 100);
+      }
+    }
+  }
+
+  .avatar-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: map-get($blue, 200);
+    height: 4rem;   
+    margin: 0.5rem 0;
+
+    .user-avatar {
+      height: 2.5rem;
+      width: 2.5rem;
+      border: 0.01rem solid black;
+      border-radius: 50%;
+      background-color: map_get($white, 100);
+      margin: 0.5rem;
+    }
+
+    .user-details {
+      display: flex;
+      flex-direction: column;
+      color: map_get($white, 100);
+
+      span~span {
+        font-weight: 200 !important;
+        font-size: 0.7rem;
+        font-style: italic;
+      }
+    }
+  }
+
+  .notes-list {
+    margin: 0.5rem;
+  }
+}
