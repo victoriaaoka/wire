@@ -6,6 +6,7 @@ import './Timeline.scss';
 // Components
 import NavBar from '../../Components/NavBar/NavBar.Component';
 import NoteList from '../../Components/NoteList/NoteList.Component';
+import Incident from '../../Components/Incident/Incident.Compoent';
 
 class Timeline extends Component {
   render() {
@@ -25,7 +26,7 @@ class Timeline extends Component {
           </div>
           <div className="aside">
             <NoteList />
-            <div>Incident Details</div>
+            <Incident />
           </div>
         </section>
       </div>

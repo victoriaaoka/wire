@@ -1,0 +1,39 @@
+@import "../../theme";
+
+.timeline-incident {
+  position: relative;
+  margin: 2rem;
+  border: 0.09rem solid map-get($blue, 150);
+  border-bottom: 3rem solid map-get($blue, 200);
+  min-height: 20vh;
+  max-height: 30vh;
+  padding: 0.5rem;
+  font-weight: 400;
+  font-size: 0.8rem;
+
+  .incident-details {
+    & button {
+      border: 1px solid map-get($blue, 200) !important;
+      margin: 0.03rem !important;
+
+      &:hover {
+        background-color: map-get($blue, 200) !important;
+        color: map-get($white, 100) !important;
+      }
+    }
+  }
+
+  .incident-footer {
+    position: absolute;
+    align-self: center;
+    bottom: -2rem;
+    color: map-get($white, 100);
+  }
+}
+
+.incident-footer-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
