@@ -27,6 +27,7 @@ class Dashboard extends Component {
     super(props);
     this.state = {
       filterKey: 'All Countries',
+      typeFilterKey: 'All Incidents',
       showNotesDialog: false,
       value: 1
     };
@@ -42,13 +43,30 @@ class Dashboard extends Component {
     };
   }
 
+  changeTypeFilter() {
+    return (key) => {
+      this.setState({ typeFilterKey: key });
+    };
+  }
+
   filterIncidents() {
-    if (this.state.filterKey === 'All Countries') {
-      return this.props.incidents;
+    // filter by countries
+
+    let country = [];
+    if (this.state.filterKey !== 'All Countries') {
+      country = this.props.incidents.filter((incident) => {
+        return this.state.filterKey === incident.location_name;
+      });
     }
-    return this.props.incidents.filter((incident) => {
-      return this.state.filterKey === incident.location_name;
+
+    // filter country by  incident's Type
+    if (this.state.filterKey !== 'All Incidents') {
+    country = this.props.incidents.filter((incident) => {
+      return this.state.typeFilterKey === incident.incident_type;
     });
+  }  
+
+    return country;
   }
   handleSelectedIncident = (selectedIncidentIndex) => {
     let selectedIncident = this.props.incidents[selectedIncidentIndex];
@@ -99,7 +117,7 @@ class Dashboard extends Component {
         <NavBar {...this.props} />
 
         <div className="dashboard-container">
-          <IncidentFilter incident={this.state.selectedIncident} changeCountryFilter={this.changeFilter()} onSelectStatus={this.handleSelectedValue} />
+          <IncidentFilter incident={this.state.selectedIncident} changeCountryFilter={this.changeFilter()} onSelectStatus={this.handleSelectedValue} filterByType={this.changeTypeFilter()} />
           {
             incidents.length ? <IncidentList incidents={incidents} onSelect={this.handleSelectedIncident}/> : <CircularProgressIndicator />
           }
@@ -116,9 +134,9 @@ class Dashboard extends Component {
         >
           <TextField
             hintText="Add notes"
-            fullWidth={true}
+            fullWidth
             floatingLabelText="Add notes to the incident"
-            multiLine={true}
+            multiLine
             rows={3}
             ref="notesTextField"
           />
