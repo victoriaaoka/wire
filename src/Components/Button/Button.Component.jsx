@@ -6,7 +6,8 @@ import FlatButton from 'material-ui/FlatButton';
 import './Button.scss';
 
 const CustomButton = ({label, onClick}) => (
-    <FlatButton className="button_" label={label} onClick={onClick} />
+  <FlatButton className="button_" label={label} onClick={onClick()} />
+
 );
 
 // props validation

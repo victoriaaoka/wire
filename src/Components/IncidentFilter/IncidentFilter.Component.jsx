@@ -52,10 +52,10 @@ export default class IncidentFilter extends Component {
           <span className="flag-type-label">
             Filter
           </span>
-          <CustomButton label="All Incidents" />
-          <CustomButton label="Red flag" />
-          <CustomButton label="Yellow flag" />
-          <CustomButton label="Green flag" />
+          <CustomButton label="All Incidents" onClick={this.props.filterByType('type a')} />
+          <CustomButton label="Red flag" onClick={this.props.filterByType('type a')} />
+          <CustomButton label="Yellow flag" onClick={this.props.filterByType('type a')} />
+          <CustomButton label="Green flag" onClick={this.props.filterByType('type a')} />
           <CustomMenu changeCountryFilter={this.props.changeCountryFilter} />
         </div>
         <div className="incident-select">
@@ -85,5 +85,6 @@ export default class IncidentFilter extends Component {
 IncidentFilter.propTypes = {
   changeCountryFilter: PropTypes.func,
   incident: PropTypes.object,
-  onSelectStatus: PropTypes.func
+  onSelectStatus: PropTypes.func,
+  filterByType: PropTypes.func
 };
