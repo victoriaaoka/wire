@@ -16,6 +16,6 @@ test:
 
 deployment:
   staging:
-    branch: ft-deploy
+    branch: develop
     commands:
       - DEPLOY_URL=$(now --token=${NOW_TOKEN} --team=andela -e NODE_ENV=development) && now alias --token=${NOW_TOKEN} --team=andela  ${DEPLOY_URL} wire
