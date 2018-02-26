@@ -7,23 +7,21 @@ import TextField from 'material-ui/TextField';
 
 // actions
 import { loadIncidents, changeStatus } from '../../actions/incidentAction';
-import { addNote } from '../../actions/noteAction';
 
 // styling
 import './Dashboard.scss';
 
 // Components
-import NavBar from '../../Components/NavBar/NavBar.Component';
+import NavBar from '../../Common/NavBar/NavBar.Component';
 import IncidentFilter from '../../Components/IncidentFilter/IncidentFilter.Component';
 import IncidentList from '../../Components/IncidentList/IncidentList.Component';
-import CircularProgressIndicator from '../../Components/Progress/Progress.Component';
 import CustomButton from '../../Components/Button/Button.Component';
 
 /**
  * @class Dashboard
  */
 export class Dashboard extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
       filterKey: 'All Countries',
@@ -37,7 +35,7 @@ export class Dashboard extends Component {
   }
 
   changeFilter() {
-    return (key) => {
+    return key => {
       this.setState({ filterKey: key });
     };
   }
@@ -46,17 +44,17 @@ export class Dashboard extends Component {
     if (this.state.filterKey === 'All Countries') {
       return this.props.incidents;
     }
-    return this.props.incidents.filter((incident) => {
+    return this.props.incidents.filter(incident => {
       return this.state.filterKey === incident.location_name;
     });
   }
-  handleSelectedIncident = (selectedIncidentIndex) => {
+  handleSelectedIncident = selectedIncidentIndex => {
     let selectedIncident = this.props.incidents[selectedIncidentIndex];
     this.setState({ ...selectedIncident });
   };
 
-  handleSelectedValue = (value) => {
-    if (!this.state.id ){
+  handleSelectedValue = value => {
+    if (!this.state.id) {
       alert('Please select an incident first!');
     } else {
       this.setState({ value: value });
@@ -76,7 +74,6 @@ export class Dashboard extends Component {
     let noteText = this.refs.notesTextField.getValue();
     let incidentId = this.state.id;
     let statusId = this.state.value - 1;
-    this.props.addNote(noteText, incidentId);
     this.props.changeStatus(statusId, incidentId);
     this.setState({ showNotesDialog: !this.state.showNotesDialog });
   };
@@ -84,25 +81,20 @@ export class Dashboard extends Component {
   render() {
     const incidents = this.filterIncidents();
     const actions = [
-      <CustomButton 
-        label="Cancel" 
-        onClick={this.handleClose}
-        />,
-      <CustomButton 
-        label="Submit" 
-        onClick={this.handleSubmit}
-        />
+      <CustomButton label="Cancel" onClick={this.handleClose} />,
+      <CustomButton label="Submit" onClick={this.handleSubmit} />
     ];
 
     return (
       <div>
         <NavBar {...this.props} />
-
+        <IncidentFilter
+          incident={this.state.selectedIncident}
+          changeCountryFilter={this.changeFilter()}
+          onSelectStatus={this.handleSelectedValue}
+        />
         <div className="dashboard-container">
-          <IncidentFilter incident={this.state.selectedIncident} changeCountryFilter={this.changeFilter()} onSelectStatus={this.handleSelectedValue} />
-          {
-            incidents.length ? <IncidentList incidents={incidents} onSelect={this.handleSelectedIncident}/> : <CircularProgressIndicator />
-          }
+          {<IncidentList incidents={incidents} onSelect={this.handleSelectedIncident} />}
         </div>
 
         <Dialog
@@ -123,7 +115,6 @@ export class Dashboard extends Component {
             ref="notesTextField"
           />
         </Dialog>
-
       </div>
     );
   }
@@ -135,30 +126,31 @@ export class Dashboard extends Component {
 Dashboard.propTypes = {
   incidents: PropTypes.array.isRequired,
   loadIncidents: PropTypes.func.isRequired,
-  addNote: PropTypes.func.isRequired,
   changeStatus: PropTypes.func.isRequired
 };
 
 /**
  * map state from the store to props
- * @param {*} state 
+ * @param {*} state
  * @returns {*} partial state
  */
 const mapStateToProps = state => {
   return {
-    incidents: state.incidents,
-    notes: state.notes
+    incidents: state.incidents
   };
 };
 
 /**
  * map dispatch to props
- * @param {*} dispatch 
+ * @param {*} dispatch
  */
-const mapDispatchToProps = dispatch => bindActionCreators({
-  loadIncidents,
-  addNote,
-  changeStatus
-}, dispatch);
+const mapDispatchToProps = dispatch =>
+  bindActionCreators(
+    {
+      loadIncidents,
+      changeStatus
+    },
+    dispatch
+  );
 
 export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);

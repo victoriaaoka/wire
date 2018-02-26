@@ -1,14 +1,7 @@
 import React, { Component } from 'react';
-import {
-    Table,
-    TableBody,
-    TableHeader,
-    TableHeaderColumn,
-    TableRow,
-    TableRowColumn,
-} from 'material-ui/Table';
-import FlatButton from 'material-ui/FlatButton';
 import PropTypes from 'prop-types';
+
+import IncidentSection from './IncidentSection.Component';
 
 //styling
 import './IncidentList.scss';
@@ -32,9 +25,9 @@ export default class IncidentList extends Component {
   /**
    * Method to determine if a row is selected
    * @param {number} index - Row index
-   * @returns {boolean} 
+   * @returns {boolean}
    */
-  isSelected = (index) => {
+  isSelected = index => {
     return this.state.selected.indexOf(index) !== -1;
   };
 
@@ -42,9 +35,9 @@ export default class IncidentList extends Component {
    * Method to set selected row(s)
    * @param {number} selectedRows - Index of selected Row(s)
    */
-  handleRowSelection = (selectedRows) => {
+  handleRowSelection = selectedRows => {
     this.setState({
-        selected: selectedRows,
+      selected: selectedRows
     });
     this.props.onSelect(selectedRows[0]);
   };
@@ -54,7 +47,7 @@ export default class IncidentList extends Component {
    * @param {string} flagType - incident flag type
    * @returns {string} flagType URL
    */
-  getIncidentFlag = (flagType) => {
+  getIncidentFlag = flagType => {
     if (flagType === 'type A') {
       return this.state.flags.green;
     } else if (flagType === 'type B') {
@@ -62,43 +55,36 @@ export default class IncidentList extends Component {
     } else {
       return this.state.flags.red;
     }
-  }
-  
+  };
+
+  /**
+   * sorts incidents by type
+   */
+  sortIncidentsByType = incidentType =>
+    this.props.incidents.length ? this.props.incidents.filter(incident => incident.Status.status == incidentType) : [];
+
   render() {
-
-    const { incidents } = this.props;
-
     return (
-      <Table onRowSelection={this.handleRowSelection}>
-        <TableHeader>
-          <TableRow className="table-header">
-            <TableHeaderColumn>Avator</TableHeaderColumn>
-            <TableHeaderColumn>Reporter</TableHeaderColumn>
-            <TableHeaderColumn>Type</TableHeaderColumn>
-            <TableHeaderColumn>Description</TableHeaderColumn>
-            <TableHeaderColumn>Time</TableHeaderColumn>
-            <TableHeaderColumn>Location</TableHeaderColumn>
-            <TableHeaderColumn>Witnesses</TableHeaderColumn>
-            <TableHeaderColumn>Status</TableHeaderColumn>
-          </TableRow>
-        </TableHeader>
-        <TableBody showRowHover>
-          {
-            incidents.map((incident, index) => (
-              <TableRow key={index} selected={this.isSelected(index)}>
-                <TableRowColumn>{incident.owner_avatar}</TableRowColumn>
-                <TableRowColumn>{incident.slack_handle_reporter}</TableRowColumn>
-                <TableRowColumn><img className="incident-flag" src={this.getIncidentFlag(incident.incident_type)} /></TableRowColumn>
-                <TableRowColumn><FlatButton label="Show"/></TableRowColumn>
-                <TableRowColumn>{incident.date_occurred}</TableRowColumn>
-                <TableRowColumn>{incident.location_name}</TableRowColumn>
-                <TableRowColumn>@slack.handle</TableRowColumn>
-                <TableRowColumn><FlatButton label={incident.status}/></TableRowColumn>
-              </TableRow>
-            ))
-          }
-        </TableBody>
-      </Table>
+      <div className="all-incidents">
+        <div className="incidents incidents-pending">
+          <IncidentSection
+            incidentStatus={'PENDING'}
+            incidents={this.sortIncidentsByType('Pending')} // replace with pending data from api
+          />
+        </div>
+        <div className="incidents incidents-progress">
+          <IncidentSection
+            incidentStatus={'IN PROGRESS'}
+            incidents={this.sortIncidentsByType('In Progress')} // replace with pending data from api
+          />
+        </div>
+        <div className="incidents incidents-resolved">
+          <IncidentSection
+            incidentStatus={'RESOLVED'}
+            incidents={this.sortIncidentsByType('Resolved')} // replace with pending data from api
+          />
+        </div>
+      </div>
     );
   }
 }
@@ -107,7 +93,7 @@ export default class IncidentList extends Component {
  * PropTypes
  */
 
- IncidentList.propTypes = {
-   incidents: PropTypes.array,
-   onSelect: PropTypes.func
- };
+IncidentList.propTypes = {
+  incidents: PropTypes.array,
+  onSelect: PropTypes.func
+};

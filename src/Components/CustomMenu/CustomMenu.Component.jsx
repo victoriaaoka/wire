@@ -5,8 +5,8 @@ import MenuItem from 'material-ui/MenuItem';
 
 const styles = {
   customWidth: {
-    width: 145,
-  },
+    width: 145
+  }
 };
 
 /**
@@ -17,7 +17,7 @@ export class CustomMenu extends React.Component {
     super();
 
     this.state = {
-      value: 'All Countries',
+      value: 'All Countries'
     };
   }
 
@@ -33,6 +33,7 @@ export class CustomMenu extends React.Component {
           value={this.state.value}
           onChange={this.handleChange}
           style={styles.customWidth}
+          style={{ fontSize: '0.8rem', textAlign: 'center', width: '10rem' }}
         >
           <MenuItem value="All Countries" primaryText="All Countries" />
           <MenuItem value="Nairobi, Kenya" primaryText="Kenya" />
@@ -46,7 +47,7 @@ export class CustomMenu extends React.Component {
 }
 
 CustomMenu.propTypes = {
-  changeCountryFilter: PropTypes.func,
+  changeCountryFilter: PropTypes.func
 };
 
 export default CustomMenu;
