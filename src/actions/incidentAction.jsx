@@ -1,5 +1,5 @@
 import * as axios from 'axios';
-import { FETCH_INCIDENTS_SUCCESS, CHANGE_STATUS } from './actionTypes';
+import { FETCH_INCIDENTS_SUCCESS, CHANGE_STATUS, INCIDENTS_LOADING } from './actionTypes';
 import config from '../config/index';
 
 // load Incidents Action Creator
@@ -7,11 +7,15 @@ export const loadIncidentsSuccess = incidents => {
   return { type: FETCH_INCIDENTS_SUCCESS, incidents };
 };
 
+export const loadingIncidents = status => {
+  return { type: INCIDENTS_LOADING, status };
+};
 /**
  * loadIncident Thunk
  */
 export const loadIncidents = () => {
   return dispatch => {
+    dispatch(loadingIncidents(true));
     return axios
       .get(config.INCIDENTS_URL)
       .then(incidents => {

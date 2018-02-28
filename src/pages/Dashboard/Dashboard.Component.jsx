@@ -26,7 +26,7 @@ export class Dashboard extends Component {
     this.state = {
       filterKey: 'All Countries',
       showNotesDialog: false,
-      value: 1
+      value: 1,
     };
   }
 
@@ -84,8 +84,10 @@ export class Dashboard extends Component {
       <CustomButton label="Cancel" onClick={this.handleClose} />,
       <CustomButton label="Submit" onClick={this.handleSubmit} />
     ];
+    const isLoading = this.props.isLoading;
 
     return (
+      isLoading? <h2>Loading ...</h2> :
       <div>
         <NavBar {...this.props} />
         <IncidentFilter
@@ -126,7 +128,8 @@ export class Dashboard extends Component {
 Dashboard.propTypes = {
   incidents: PropTypes.array.isRequired,
   loadIncidents: PropTypes.func.isRequired,
-  changeStatus: PropTypes.func.isRequired
+  changeStatus: PropTypes.func.isRequired,
+  isLoading: PropTypes.bool.isRequired
 };
 
 /**
@@ -136,7 +139,8 @@ Dashboard.propTypes = {
  */
 const mapStateToProps = state => {
   return {
-    incidents: state.incidents
+    incidents: state.incidents.incidents,
+    isLoading: state.incidents.isLoading
   };
 };
 
