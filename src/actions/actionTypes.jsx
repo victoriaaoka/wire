@@ -1,3 +1,5 @@
 export const FETCH_INCIDENTS_SUCCESS = 'FETCH_INCIDENTS_SUCCESS';
 export const ADD_NOTE = 'ADD_NOTE';
 export const CHANGE_STATUS = 'CHANGE_STATUS';
+export const ERROR_ACTION = 'ERROR_ACTION';
+export const IS_LOADING = 'IS_LOADING';
