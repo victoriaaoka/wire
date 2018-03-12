@@ -27,7 +27,7 @@ module.exports = {
       levelId: 2,
       locationId: 2,
       updatedAt: '2018-02-13T15:58:06.202Z',
-      assigneeId: 5,
+      assigneeId: 1,
       categoryId: null
     },
     {
@@ -42,7 +42,22 @@ module.exports = {
       levelId: 1,
       locationId: 3,
       updatedAt: '2018-02-13T15:58:06.202Z',
-      assigneeId: 6,
+      assigneeId: 3,
+      categoryId: null
+    },
+    {
+      id: 4,
+      createdAt: '2018-02-13T15:58:06.202Z',
+      subject: 'subject 4',
+      description: 'description 3',
+      dateOccurred: '2018-02-13T15:58:06.202Z',
+      witnesses: ['@slack_name', '@slack_name'],
+      userId: 4,
+      statusId: 3,
+      levelId: 1,
+      locationId: 4,
+      updatedAt: '2018-02-13T15:58:06.202Z',
+      assigneeId: 2,
       categoryId: null
     }
   ],
@@ -150,20 +165,20 @@ module.exports = {
     {
       id: 2,
       name: 'Game Room',
-      centre: 'Nairobi',
-      country: 'Kenya'
+      centre: 'Lagos',
+      country: 'Nigeria'
     },
     {
       id: 3,
       name: 'Board Room',
-      centre: 'Nairobi',
-      country: 'Kenya'
+      centre: 'New York',
+      country: 'USA'
     },
     {
       id: 4,
       name: 'Quiet Room',
-      centre: 'Nairobi',
-      country: 'Kenya'
+      centre: 'Kampala',
+      country: 'Uganda'
     }
   ],
   categories: [],
