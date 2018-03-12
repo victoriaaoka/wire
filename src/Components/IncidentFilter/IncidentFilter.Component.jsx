@@ -61,25 +61,7 @@ export default class IncidentFilter extends Component {
           </SelectField>
 
           <span> or </span>
-
-          <DatePicker
-            className="date-filter"
-            hintText="From"
-            mode="landscape"
-            container="inline"
-            autoOk
-            textFieldStyle={{ fontSize: '0.8rem', textAlign: 'center' }}
-          />
-
-          <DatePicker
-            className="date-filter"
-            hintText="To"
-            mode="landscape"
-            container="inline"
-            autoOk
-            textFieldStyle={{ fontSize: '0.8rem', textAlign: 'center' }}
-          />
-
+    
           <SelectField
             value={this.state.flagFilterValue}
             onChange={this.handleFlagChange}
