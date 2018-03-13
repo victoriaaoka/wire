@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import DatePicker from 'material-ui/DatePicker';
+// import DatePicker from 'material-ui/DatePicker';
 import Toggle from 'material-ui/Toggle';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
@@ -30,7 +30,12 @@ export default class IncidentFilter extends Component {
     this.setState({ flagFilterValue: value });
   };
 
+
+
   render() {
+    const currentDate = new Date();
+    const monthHash = `${currentDate.getFullYear()}-${currentDate.getMonth()}`;
+
     const styles = {
       thumbOff: {
         backgroundColor: '#616161'
@@ -51,12 +56,13 @@ export default class IncidentFilter extends Component {
           <span className="incidents-label">Show Incidents</span>
 
           <SelectField
-            value={this.state.durationFilterValue}
+            onChange={this.changeDateFilter()}  
+            value={this.state.dateFilter}
             className="duration-filter"
             style={{ fontSize: '0.8rem', textAlign: 'center', width: '9rem' }}
           >
             <MenuItem value={0} primaryText="This Week" />
-            <MenuItem value={1} primaryText="This Month" />
+            <MenuItem value={monthHash} primaryText="This Month" />
             <MenuItem value={2} primaryText="This Quarter" />
           </SelectField>
 

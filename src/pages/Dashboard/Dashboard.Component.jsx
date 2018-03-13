@@ -19,12 +19,14 @@ import CircularProgressIndicator from '../../Components/Progress/Progress.Compon
 /**
  * @class Dashboard
  */
+
 export class Dashboard extends Component {
   constructor(props) {
     super(props);
     this.state = {
       filterKey: 'All Countries',
       typeFilterKey: 'All Incidents',
+      dateFilterKey:'',
       showNotesDialog: false,
       value: 1
     };
@@ -46,6 +48,14 @@ export class Dashboard extends Component {
     };
   }
 
+  changeDateFilter() {
+    return (key) => {
+      this.setState({ dateFilterKey: key });
+      console.log('...', key);
+    };
+  
+  }
+
   filterIncidents() {
     let incidents = this.props.incidents;
 
@@ -63,7 +73,19 @@ export class Dashboard extends Component {
         return incident.Level && stateKey === incident.Level.name.toLocaleLowerCase();
       });
     }
+
+    // filter by Month
+    if (this.state.dateFilterKey !== 'All Incidents') {
+      incidents = incidents.filter((incident) => {
+        if (incident.dateOccurred) {
+          const monthHash = `${incident.dateOccurred.getFullYear()}-${incident.dateOccurred.getMonth()}`;
+          return (this.state.dateFilterKey === monthHash);
+        }
+        return false;
+      });
+    }
     return incidents;
+  
   }
 
   render() {
